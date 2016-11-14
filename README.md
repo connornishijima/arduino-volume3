@@ -114,7 +114,7 @@ Now that there are three separately-developed Volume libraries, here is a table 
 | Ram Usage (Bytes)             | 39          | 457         | 24            |
 | Frequency Slide Quality       | GREAT       | BAD         | GOOD          |
 | Timer Usage                   | 0, 1        | 0, 1        | 1             |
-| Delay Issue (Timer 0)         | YES         | YES         | NO            |
+| Delay Issue (Timer0 Prescaler)| YES         | YES         | NO            |
 | Square Wave                   | YES         | YES         | YES           |
 | Sawtooth Wave                 | NO          | YES         | NO            |
 | Triangle Wave                 | NO          | YES         | NO            |
