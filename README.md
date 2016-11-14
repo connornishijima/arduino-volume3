@@ -107,7 +107,12 @@ Any advice or pull requests are welcome. :)
 
 **Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**
 
-| Library                       | Volume1     | Volume2     | Volume3       |
+----------
+# Volume Library Comparison
+
+Now that there are three separately-developed Volume libraries, here is a table delineating their abilities. One will be good for higher frequencies, one will do custom waves, one will have higher volume accuracy, and so forth. Eventually I'm looking to merge them, but for now each has it's strengths and weaknesses.
+
+| Library                       | **Volume1** | **Volume2** | **Volume3**   |
 |-------------------------------|-------------|-------------|---------------|
 | Accuracy                      | 8-bit (255) | 8-bit (255) | 10-bit (1023) |
 | Frequency Range (Hz)          | 120 - 5000  | 1 - 3400    | 1 - 4186      |
