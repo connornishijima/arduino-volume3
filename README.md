@@ -15,6 +15,7 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 - [Functions](#functions)
 - [Supported Pins](#supported-pins)
 - [Limitations](#limitations)
+- [Volume Library Comparison](#volume-library-comparison)
 - [Contributing](#contributing)
 - [License and credits](#license-and-credits)
 
@@ -98,16 +99,6 @@ I don't know if I'll have this working on ATTiny*5 boards any time soon, though 
 This is because on AVRs with Timer1 - only 2 pins are in that timer's control. It also means that while you're using Volume3, normal `analogWrite()` use probably won't work on these two pins.
 
 ----------
-# Contributing
-Any advice or pull requests are welcome. :)
-
-----------
-# License and Credits
-**Developed by Connor Nishijima (2016)**
-
-**Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**
-
-----------
 # Volume Library Comparison
 
 Now that there are three separately-developed Volume libraries, here is a table delineating their abilities. One will be good for higher frequencies, one will do custom waves, one will have higher volume accuracy, and so forth. Eventually I'm looking to merge them, but for now each has it's strengths and weaknesses.
@@ -129,3 +120,13 @@ Now that there are three separately-developed Volume libraries, here is a table 
 | Triangle Wave                 | NO          | YES         | NO            |
 | Sine Wave                     | NO          | YES         | NO            |
 | Custom Wave                   | NO          | YES         | NO            |
+
+----------
+# Contributing
+Any advice or pull requests are welcome. :)
+
+----------
+# License and Credits
+**Developed by Connor Nishijima (2016)**
+
+**Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**
