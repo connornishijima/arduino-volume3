@@ -1,6 +1,5 @@
-![#Arduino Volume Library](http://i.imgur.com/muq8u3K.jpg)
+#Volume3
 
-** **
 **Arduino tone() just got 10-bit volume control!***
 
 **with no extra components!*
