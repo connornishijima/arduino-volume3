@@ -106,3 +106,21 @@ Any advice or pull requests are welcome. :)
 **Developed by Connor Nishijima (2016)**
 
 **Released under the [GPLv3 license](http://www.gnu.org/licenses/gpl-3.0.en.html).**
+
+| Library                       | Volume1     | Volume2     | Volume3       |
+|-------------------------------|-------------|-------------|---------------|
+| Accuracy                      | 8-bit (255) | 8-bit (255) | 10-bit (1023) |
+| Frequency Range (Hz)          | 120 - 5000  | 1 - 3400    | 1 - 4186      |
+| PWM Frequency (Hz)            | 62,500      | 62,500      | 100,000       |
+| Polyphony                     | 1           | 1           | 1             |
+| Needs vol.begin()             | YES         | YES         | NO            |
+| Compiled Library Size (Bytes) | 2,501       | 2,542       | 1,054         |
+| Ram Usage (Bytes)             | 39          | 457         | 24            |
+| Frequency Slide Quality       | GREAT       | BAD         | GOOD          |
+| Timer Usage                   | 0, 1        | 0, 1        | 1             |
+| Delay Issue                   | YES         | YES         | NO            |
+| Square Wave                   | YES         | YES         | YES           |
+| Sawtooth Wave                 | NO          | YES         | NO            |
+| Triangle Wave                 | NO          | YES         | NO            |
+| Sine Wave                     | NO          | YES         | NO            |
+| Custom Wave                   | NO          | YES         | NO            |
