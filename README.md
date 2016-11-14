@@ -1,15 +1,13 @@
 ![#Arduino Volume Library](http://i.imgur.com/muq8u3K.jpg)
 
 ** **
-**Arduino tone() just got 8-bit volume control!***
+**Arduino tone() just got 10-bit volume control!***
 
 **with no extra components!*
 
-**[VIDEO DEMONSTRATION](https://www.youtube.com/watch?v=4wkMY6DDPDw)**
-
 Ever needed a project to play a tone through a speaker or piezo that *wasn't* blisteringly loud? You can bring the volume down with a resistor, but what if you needed a loud alert beep at some point as well?
 
-**Now it's no longer an issue.** :) Using ultra-fast PWM, the Volume library allows the speaker itself to act as an RC filter to produce *smooth* (8-bit) analog-like volume control.
+**Now it's no longer an issue.** :) Using ultra-fast PWM, the Volume library allows the speaker itself to act as an RC filter to produce *smooth* (**10-bit**) analog-like volume control.
 
 ----------
 # Contents
@@ -24,72 +22,54 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 ----------
 # Installation
 
-**With Arduino Library Manager:**
+~~**With Arduino Library Manager:**~~ *COMING SOON!*
 
-1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.
-2. Search for "Volume", (look for "Connor Nishijima") and select the latest version.
-3. Click the Install button and Arduino will prepare the library and examples for you!
+~~1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.~~
+~~2. Search for "Volume3", (look for "Connor Nishijima") and select the latest version.~~
+~~3. Click the Install button and Arduino will prepare the library and examples for you!~~
 
 **Manual Install:**
 
-1. Click "Clone or Download" above to get an "arduino-volume-master.zip" file.
+1. Click "Clone or Download" above to get an "arduino-volume3-master.zip" file.
 2. Extract it's contents to the libraries folder in your sketchbook.
-3. Rename the folder from "arduino-volume-master" to "Volume".
+3. Rename the folder from "arduino-volume3-master" to "Volume3".
 
 ----------
 # Usage
 
-Using the volume-controlled `vol.tone()` function looks very similar to the Arduino `tone()`, but the function arguments are very different:
+Using the volume-controlled `vol.tone()` function is very similar to the Arduino `tone()`:
 
 **Arduino:**
  - **tone**(unsigned int **pin**, unsigned int **frequency**);
 
-**Volume:**
- - vol.**tone**(unsigned int **frequency**, byte **volume**);
+**Volume3:**
+ - vol.**tone**(byte **pin**, unsigned int **frequency**, unsigned int **volume**);
 
 Volume control is limited to certain pins. See [Supported Pins](#supported-pins).
 
 ----------
 Here is what you need to get started with the bare minimum:
 
-    #include "Volume.h" // Include the Volume library
-
-    Volume vol; // Plug your speaker into the default pin for your board type:
-    // https://github.com/connornishijima/arduino-volume#supported-pins
+    #include "Volume3.h" // Include the Volume library
+    #define speakerPin 9
 
     void setup() {
-      vol.begin();
+      // Nothing here!
     }
     void loop() {
-      byte volumes[4] = {255, 127, 12, 0};   // List of volumes: 100% Volume, 50% Volume, 5% Volume, 0% Volume
-      for (int i = 0; i < 4; i++) { // Iterate through volume list one second at a time
-        vol.tone(440, volumes[i]);
-        vol.delay(1000);
+      uint16_t volume = 1023;
+      uint16_t frequency = 440;
+      while(volume > 0){
+        vol.tone(speakerPin,frequency,volume);
+        volume--;
+        delay(10);
       }
-
-      vol.tone(880, 255); // 100% Volume
-      vol.fadeOut(5000);  // Start a 5 second fade out
-      vol.delay(5000);    // Wait for this fade to finish
     }
-
-Of course, you can set the volume to any value between 0 and 255 you'd like, for full 8-bit volume fades.
 
 ----------
 # Functions
 
-**Volume vol**;
-
-This initializes the Volume library after import. "vol" can be any word you want, as long as it's reflected in the rest of your code.
-
-**vol.begin**();
-
-This sets up a Timer Compare Interrupt on Timer1 for the tone frequencies. (You won't hear anything until a `vol.tone()` is called.)
-
-**vol.setMasterVolume**(float **percentage**);
-
-This is a multiplier applied to the volume of any tones played. By default this is 1.00 - a value of 0.34 would make all tones 34% of their programmed volume;
-
-**vol.tone**(unsigned int **frequency**, byte **volume**);
+**vol.tone**(byte **pin**, unsigned int **frequency**, unsigned int **volume**);
 
 *This is where the magic happens.* At the frequency you specify, your Arduino will analogWrite(**volume**) to the speaker with a PWM frequency of 62.5KHz, for half the duration of a single period of the **frequency** before pulling it `LOW`. (Using Timer1 compare-match interrupts to maintain the input frequency) This high-speed PWM is beyond your range of hearing, (and probably the functioning range of your speaker) so it will just sound like a quieter or louder version of the input frequency!
 
