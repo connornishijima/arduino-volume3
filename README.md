@@ -22,11 +22,11 @@ Ever needed a project to play a tone through a speaker or piezo that *wasn't* bl
 ----------
 # Installation
 
-~~**With Arduino Library Manager:**~~ *COMING SOON!*
+**With Arduino Library Manager:**
 
-~~1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.~~
-~~2. Search for "Volume3", (look for "Connor Nishijima") and select the latest version.~~
-~~3. Click the Install button and Arduino will prepare the library and examples for you!~~
+1. Open *Sketch > Include Library > Manage Libraries* in the Arduino IDE.
+2. Search for "Volume3", (look for "Connor Nishijima") and select the latest version.
+3. Click the Install button and Arduino will prepare the library and examples for you!
 
 **Manual Install:**
 
